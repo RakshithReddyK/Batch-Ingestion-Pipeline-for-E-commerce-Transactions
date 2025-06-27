@@ -1,1 +1,0 @@
-# Batch-Ingestion-Pipeline-for-E-commerce-Transactions
