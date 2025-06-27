@@ -65,10 +65,9 @@ Batch-Ingestion-Pipeline-for-E-commerce-Transactions/
 │   └── glue_etl_job.py              # PySpark job used in AWS Glue
 │
 ├── data/
-│   └── transactions_sample.csv      # Sample input file (optional)
+│   └── payments.csv      # input csv file
 │
-├── README.md                        # Project documentation
-└── requirements.txt                 # (Optional) Python packages used locally
+└── README.md                        # Project documentation
 ```
 
 ---
@@ -104,5 +103,5 @@ Batch-Ingestion-Pipeline-for-E-commerce-Transactions/
 
 **Kondra Rakshith Reddy**\
 AWS Data Engineer |
-
+https://github.com/RakshithReddyK
 
