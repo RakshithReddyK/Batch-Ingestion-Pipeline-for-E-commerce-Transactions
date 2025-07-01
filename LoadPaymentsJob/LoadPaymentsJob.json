@@ -1,0 +1,42 @@
+{
+  "name" : "LoadPaymentsJob",
+  "jobMode" : "SCRIPT",
+  "description" : "",
+  "role" : "arn:aws:iam::700630379984:role/GlueRedshiftETLRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-700630379984-us-east-1/scripts/LoadPaymentsJob.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--extra-py-files" : "s3://my-payment-pipeline-data/drivers/redshift-jdbc42-2.1.0.33.jar",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-700630379984-us-east-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--enable-observability-metrics" : "true",
+    "--enable-glue-datacatalog" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://my-payment-pipeline-data/tmp/"
+  },
+  "connections" : {
+    "connections" : [ "manual-redshift-jdbc-conn" ]
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 2,
+  "timeout" : 20,
+  "maxCapacity" : 2.0,
+  "glueVersion" : "5.0",
+  "numberOfWorkers" : 2,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "Batch-Ingestion-Pipeline-for-E-commerce-Transactions",
+    "branch" : "main",
+    "folder" : "LoadPaymentsJob"
+  }
+}
